@@ -1,0 +1,26 @@
+<section class="container" id="calendarSection">
+  <h2>Calendar</h2>
+  <p>Choose your month:</p>
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="First group" id="monthes">
+        <button type="button" class="btn btn-secondary" *ngFor="let m of monthes" (click)="onMonthClick(m.id)"> {{ m.name }} </button>
+      </div>
+  </div>
+  <br>
+  <div class="one">
+      <ul id="appointments" class="list-group">
+          <li class="list-group-item" *ngFor="let a of appointments" (click)="onAppointmentClick(a.id)"> {{ a.date }}: {{ a.description }} </li>
+      </ul>
+  </div>
+  <div class="two" *ngIf="displayDetails">
+      <ul class="list-group">
+          <li class="list-group-item">Description: {{ appointment.description }} </li>
+          <li class="list-group-item">Date: {{ appointment.date }} </li>
+          <li class="list-group-item">Organizer: {{ appointment.organizer.fname }} {{ appointment.organizer.lname }} </li>
+          <li class="list-group-item">Attendees:</li>
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-success" *ngFor="let at of attendees"> {{ at.fname }} {{ at.lname }} </li>
+          </ul>
+      </ul>
+  </div>
+</section>
